@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Q4 DFR NSP Team Engagement</title>
+<style>
+:root{--y:#ffe14d;--k:#151515;--p:#ff5fa2;--c:#3ddcff;--l:#b6f24a;--v:#9b7bff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--y) radial-gradient(rgba(21,21,21,.18) 1.4px,transparent 1.6px) 0 0/22px 22px;color:var(--k);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;font-weight:700;overflow-x:hidden}
+button{font:inherit;font-weight:800;color:var(--k);background:#fff;border:3px solid var(--k);border-radius:12px;padding:8px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--k);transition:transform .1s,box-shadow .1s,background .2s}
+button:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--k)}
+button:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--k)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--v);outline-offset:2px}
+.fl{position:fixed;font-size:40px;pointer-events:none;animation:fl 5s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translateY(-26px) rotate(14deg)}}
+.top{position:relative;z-index:2;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 16px}
+.logo{font-family:Impact,"Arial Black",sans-serif;font-size:24px;background:var(--k);color:var(--y);padding:4px 12px;border-radius:10px;transform:rotate(-2deg)}
+.tabs,.seg{display:flex;gap:8px;flex-wrap:wrap}
+.tabs .on,.seg .on{background:var(--p);color:#fff}
+.view{display:none;position:relative;z-index:1;padding:10px 16px 48px;max-width:1100px;margin:0 auto}
+.view.on{display:block;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{opacity:0;transform:translateY(26px) scale(.95)}}
+.box{background:#fff;border:3px solid var(--k);border-radius:16px;box-shadow:5px 5px 0 var(--k);padding:16px}
+h1{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(52px,13vw,128px);line-height:.95;margin:20px 0 6px;color:var(--p);text-shadow:4px 4px 0 var(--k),-2px -2px 0 #fff;letter-spacing:1px}
+h1 span{display:inline-block;animation:drop .7s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i)*70ms)}
+h1 span:hover{animation:wig .4s}
+@keyframes drop{from{opacity:0;transform:translateY(-120px) rotate(-30deg)}}
+@keyframes wig{50%{transform:rotate(12deg) scale(1.2)}}
+.sub{font-size:clamp(18px,3.5vw,30px);margin:0 0 18px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.chips b{background:#fff;border:3px solid var(--k);border-radius:99px;padding:8px 16px;box-shadow:3px 3px 0 var(--k);animation:pop .6s both}
+.chips b:nth-child(2){animation-delay:.15s;background:var(--c)}.chips b:nth-child(3){animation-delay:.3s;background:var(--l)}
+.go{background:var(--k);color:var(--y);font-size:22px;padding:14px 30px;animation:pulse 1.4s infinite}
+.go:hover{background:var(--k)}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.tick{overflow:hidden;margin-top:34px;border:3px solid var(--k);background:var(--k);color:var(--y);white-space:nowrap;border-radius:10px;transform:rotate(-1deg)}
+.tick div{display:inline-block;padding:8px 0;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{padding:18px;border:3px solid var(--k);border-radius:16px;box-shadow:5px 5px 0 var(--k);background:var(--c);animation:pop .6s both;animation-delay:calc(var(--i)*90ms);transition:transform .2s}
+.card:hover{transform:rotate(-2deg) translateY(-6px)}
+.card h3{margin:6px 0;font-size:20px}.card p{margin:0;font-weight:600;line-height:1.4}
+.card i{font-size:34px;font-style:normal}
+.tl{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.tl div{flex:1;min-width:150px;background:#fff;border:3px solid var(--k);border-radius:12px;padding:10px;animation:pop .5s both;animation-delay:calc(var(--i)*120ms + .5s)}
+.tl small{display:block;font-weight:600}
+.bn{margin:6px 0 16px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.cat{background:var(--c);border:3px solid var(--k);border-radius:16px;box-shadow:5px 5px 0 var(--k);padding:12px}
+.cat h3{margin:0 0 10px;font-size:18px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.cat h3 small{margin-left:auto;background:var(--k);color:#fff;border-radius:99px;padding:2px 10px;font-size:12px}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.tile{padding:0;aspect-ratio:1;border-radius:10px;font-weight:900;box-shadow:2px 2px 0 var(--k);animation:tp .45s cubic-bezier(.3,1.6,.5,1) both;animation-delay:var(--d)}
+@keyframes tp{from{opacity:0;transform:scale(0) rotate(-90deg)}}
+.tile:hover{background:var(--y);transform:rotate(-6deg) scale(1.12)}
+.tile.used{background:#cfcfcf;color:#777;text-decoration:line-through;box-shadow:none}
+dialog{border:3px solid var(--k);border-radius:20px;padding:0;color:var(--k);overflow:visible;box-shadow:8px 8px 0 var(--k);font-family:inherit}
+dialog::backdrop{background:rgba(21,21,21,.65)}
+dialog[open]{animation:pop .4s cubic-bezier(.2,1.4,.4,1)}
+#qd{width:min(94vw,820px);background:var(--c)}
+.qin{padding:16px}
+.qh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.qh b{font-size:18px}.qh .sp{flex:1}
+.clock{font-size:34px;font-variant-numeric:tabular-nums;min-width:62px;text-align:center}
+.clock.low{color:#e11;animation:sh .35s infinite}
+@keyframes sh{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.tb{height:16px;border:3px solid var(--k);border-radius:99px;background:#fff;overflow:hidden;margin-bottom:14px}
+.tb i{display:block;height:100%;width:100%;background:var(--k);transition:width 1s linear}
+.tb.low i{background:#e11}
+.stage{perspective:1400px;height:min(46vh,340px);min-height:240px}
+.flip{position:relative;height:100%;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.3,1.3,.4,1)}
+.flip.open{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;border:3px solid var(--k);border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.back{transform:rotateY(180deg);background:var(--l)}
+.q{font-size:clamp(22px,4.6vw,38px);line-height:1.25;margin:0;font-weight:800}
+.a{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(30px,7vw,60px);margin:0}
+.lb{font-size:13px;font-weight:800;background:var(--k);color:#fff;border-radius:99px;padding:2px 10px;align-self:flex-start}
+.act{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.act .main{background:var(--y)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#fff;border:3px solid var(--k);border-radius:14px;box-shadow:4px 4px 0 var(--k);padding:8px 10px;margin:10px 0;animation:pop .4s both}
+.row.bump{animation:bump .55s}
+@keyframes bump{40%{transform:scale(1.04) rotate(-1deg);background:var(--l)}}
+.rk{width:36px;height:36px;border-radius:50%;background:var(--y);border:3px solid var(--k);display:grid;place-items:center;flex:none}
+.row:first-child .rk{background:var(--p);color:#fff}
+.row input{flex:1;min-width:110px;font:inherit;font-weight:700;border:3px solid var(--k);border-radius:10px;padding:6px 10px;background:#fffbe8}
+.sc{min-width:70px;text-align:right;font-size:28px;font-family:Impact,sans-serif}
+.pl{background:var(--l)}
+#pd{width:min(94vw,520px);background:var(--v);padding:20px;text-align:center}
+.pod{display:flex;gap:10px;align-items:flex-end;justify-content:center;height:230px;margin:10px 0}
+.pod div{flex:1;border:3px solid var(--k);border-radius:12px 12px 0 0;background:#fff;display:flex;flex-direction:column;justify-content:flex-start;padding:6px;animation:grow 1s cubic-bezier(.3,1.4,.5,1) both;overflow:hidden}
+@keyframes grow{from{height:0;padding:0;border-width:0}}
+#cf{position:fixed;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;background:transparent;pointer-events:none;overflow:visible}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<span class="fl" style="left:4%;top:30%">🎯</span><span class="fl" style="right:5%;top:22%;animation-delay:-1s">🏆</span><span class="fl" style="left:8%;bottom:8%;animation-delay:-2s">🎉</span><span class="fl" style="right:8%;bottom:12%;animation-delay:-3s">🧠</span>
+<header class="top">
+  <span class="logo">DFR NSP</span>
+  <nav class="tabs" aria-label="Menu">
+    <button data-v="home" class="on">Beranda</button><button data-v="rules">Aturan</button><button data-v="board">Papan soal</button><button data-v="score">Skor</button>
+  </nav>
+  <div class="seg" aria-label="Ronde"><button data-m="ind" class="on">Individu</button><button data-m="tim">Tim</button></div>
+</header>
+
+<section class="view on" id="v-home">
+  <h1 id="ttl"></h1>
+  <p class="sub">Team Engagement · Kuis Seru Akhir Tahun</p>
+  <div class="chips"><b>📅 Jumat, 13 November 2026</b><b>🕓 16.00 – 17.30</b><b>📍 Beijing, Lantai 11</b></div>
+  <button class="go" data-v="board">Mulai main →</button>
+  <div class="tick"><div id="tk"></div></div>
+</section>
+
+<section class="view" id="v-rules">
+  <div class="cards" id="rules"></div>
+  <div class="tl" id="tl"></div>
+</section>
+
+<section class="view" id="v-board">
+  <p class="bn" id="bn"></p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="view" id="v-score">
+  <p class="bn" id="sn"></p>
+  <div id="sl"></div>
+  <button id="win" class="go" style="font-size:18px;padding:10px 22px;animation:none">🏆 Umumkan juara</button>
+</section>
+
+<dialog id="qd"><div class="qin">
+  <div class="qh"><b id="qc"></b><span class="sp"></span><span class="clock" id="clk"></span><button id="pz">Jeda</button><button id="sd">Suara: nyala</button></div>
+  <div class="tb" id="tb"><i></i></div>
+  <div class="stage"><div class="flip" id="fl">
+    <div class="face"><span class="lb" id="qn"></span><p class="q" id="q"></p></div>
+    <div class="face back"><span class="lb">JAWABAN</span><p class="a" id="a"></p></div>
+  </div></div>
+  <div class="act"><button class="main" id="rv">Buka jawaban</button><button id="cl">Selesai &amp; tutup</button></div>
+</div></dialog>
+
+<dialog id="pd"><h2 style="margin:0;font-family:Impact,sans-serif;font-size:32px">JUARA!</h2><div class="pod" id="pod"></div><button id="pc">Tutup</button></dialog>
+<canvas id="cf" popover="manual"></canvas>
+
+<script>
+const D=[
+{n:"Matematika Receh",e:"🧮",c:"#ff5fa2",t:90,q:["25 × 4 = ?|100","12 × 12 = ?|144","15% dari 200 adalah?|30","7 × 8 = ?|56","144 ÷ 12 = ?|12","Akar kuadrat dari 169?|13","99 + 99 = ?|198","Ada 3 ayam dan 2 kambing. Berapa total kaki mereka?|14 (6 + 8)","2 pangkat 8 = ?|256","45 + 55 − 20 = ?|80","Setengah dari seperempat itu berapa?|1/8","Pizza 8 potong, 14 orang mau 1 potong masing-masing. Minimal beli berapa pizza?|2 pizza","Acara mulai 16.00 dan berlangsung 90 menit. Selesai jam berapa?|17.30","17 × 6 = ?|102","Gaji 5 juta naik 10%. Jadi berapa?|5,5 juta","3 + 3 × 3 = ?|12","Kopi 25 ribu × 4 gelas = ?|100 ribu","1/2 + 1/3 = ?|5/6","11 × 11 = ?|121","5 teman patungan 250 ribu. Per orang bayar berapa?|50 ribu"]},
+{n:"Makan Mania",e:"🍜",c:"#ff9a3d",t:60,q:["Bahan utama tempe adalah?|Kedelai","Rendang berasal dari daerah mana?|Minangkabau, Sumatera Barat","Mie instan pertama kali ditemukan di negara apa?|Jepang","Gudeg adalah makanan khas kota apa?|Yogyakarta","Buah yang dijuluki raja buah?|Durian","Kopi luwak diproses lewat pencernaan hewan apa?|Musang (luwak)","Rasa pedas cabai berasal dari senyawa bernama?|Kapsaisin","Pempek adalah makanan khas kota apa?|Palembang","Pizza berasal dari negara mana?|Italia","Teh dibuat dari bagian tanaman yang mana?|Daun","Kuah soto Betawi biasanya memakai tambahan apa?|Santan (atau susu)","Cilok singkatan dari?|Aci dicolok","Seblak terbuat dari apa?|Kerupuk basah","Mutiara pada boba terbuat dari?|Tapioka","Terasi dibuat dari apa?|Udang kecil (rebon)","Bumbu sate ayam biasanya terbuat dari?|Kacang tanah","Kopi tubruk disajikan dengan cara?|Bubuk langsung diseduh air panas","Ada berapa huruf pada kata BAKSO?|5","Klepon berisi apa di dalamnya?|Gula merah","Sushi berasal dari negara mana?|Jepang"]},
+{n:"Kantor & Singkatan",e:"🏢",c:"#3ddcff",t:60,q:["WFH singkatan dari?|Work From Home","ASAP singkatan dari?|As Soon As Possible","KPI singkatan dari?|Key Performance Indicator","OOO di auto-reply email artinya?|Out Of Office","Alat kantor bunyi ctek untuk menjepit kertas?|Stapler","MRT singkatan dari?|Mass Rapid Transit","PIC singkatan dari?|Person In Charge","EOD singkatan dari?|End Of Day","Kerja 8 jam sehari, 5 hari seminggu. Total jam seminggu?|40 jam","TGIF singkatan dari?|Thank God It's Friday","LRT singkatan dari?|Light Rail Transit","FYI singkatan dari?|For Your Information","MoM dalam rapat artinya?|Minutes of Meeting","BTW singkatan dari?|By The Way","Ruang acara kita bernama Beijing. Beijing ibu kota negara mana?|Tiongkok (China)","ETA singkatan dari?|Estimated Time of Arrival","CEO singkatan dari?|Chief Executive Officer","HRD singkatan dari?|Human Resources Department","Puncak Monas dilapisi emas berbentuk apa?|Lidah api","Hari ulang tahun kota Jakarta diperingati tanggal berapa?|22 Juni"]},
+{n:"Fakta Random",e:"🤪",c:"#b6f24a",t:60,q:["Hewan darat tercepat di dunia?|Cheetah","Gurita punya berapa jantung?|3","Planet terdekat dari matahari?|Merkurius","Makanan yang hampir tidak pernah basi?|Madu","Hewan yang punya sidik jari mirip manusia?|Koala","Warna darah gurita?|Biru","Jumlah warna pelangi?|7","Nemo di film Finding Nemo adalah ikan apa?|Ikan badut","Berapa pemain sepak bola satu tim di lapangan?|11","Burung terbesar yang tidak bisa terbang?|Burung unta","Bahasa pemrograman yang namanya sama dengan ular?|Python","Siapa pendiri Facebook?|Mark Zuckerberg","Warna asli kotak hitam pesawat?|Oranye","Mata uang negara Jepang?|Yen","Ibu kota Australia?|Canberra","Jumlah huruf alfabet?|26","Bulan apa yang punya 28 hari?|Semua bulan","Hewan yang dijuluki kapal gurun pasir?|Unta","Nama asli Spider-Man?|Peter Parker","Cahaya matahari sampai ke bumi dalam waktu sekitar?|8 menit"]}
+];
+const R=[["👥","Pemain","14 orang bermain, 3 panitia (host, pencatat waktu dan skor, dokumentasi)."],["🧍","Ronde 1: Individu","20 soal dari 4 kategori. Semua jawab bareng di kertas, yang benar dapat poin."],["🤝","Ronde 2: Tim","7 tim × 2 orang. Diskusi dulu, satu jawaban per tim."],["⏱️","Waktu","60 detik per soal. Matematika dapat 90 detik."],["💯","Poin","Benar +100, salah +0. Tidak ada pengurangan."],["🃏","Joker","Tiap tim punya 1× Joker di ronde tim, poin soal jadi ×2. Kalau seri, sudden death."]];
+const J=[["16.00","Pembukaan & bagi tim"],["16.10","Ronde 1 Individu"],["16.45","Break & foto"],["16.55","Ronde 2 Tim"],["17.20","Juara & penutupan"]];
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+let mode="ind",used=new Set(),cur=null,left=0,tot=60,run=false,mute=false;
+const P={ind:Array.from({length:14},(_,i)=>({n:"Pemain "+(i+1),s:0})),tim:Array.from({length:7},(_,i)=>({n:"Tim "+(i+1),s:0}))};
+$("#ttl").innerHTML=[..."Q4 DFR NSP"].map((c,i)=>`<span style="--i:${i}">${c==" "?"&nbsp;&nbsp;":c}</span>`).join("");
+$("#tk").innerHTML=("🎉 80 SOAL SERU &nbsp;•&nbsp; 4 KATEGORI &nbsp;•&nbsp; BENAR +100 &nbsp;•&nbsp; SALAH +0 &nbsp;•&nbsp; JOKER ×2 &nbsp;•&nbsp; ").repeat(8);
+$("#rules").innerHTML=R.map((r,i)=>`<div class="card" style="--i:${i};background:${["#3ddcff","#ff9a3d","#b6f24a","#ff5fa2","#ffe14d","#9b7bff"][i]}"><i>${r[0]}</i><h3>${r[1]}</h3><p>${r[2]}</p></div>`).join("");
+$("#tl").innerHTML=J.map((j,i)=>`<div style="--i:${i}"><b>${j[0]}</b><small>${j[1]}</small></div>`).join("");
+function show(v){$$(".view").forEach(x=>x.classList.toggle("on",x.id=="v-"+v));$$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.v==v));if(v=="score")score();scrollTo(0,0)}
+function labels(){const t=mode=="ind";$("#bn").textContent=t?"Ronde Individu: semua jawab bareng di kertas, yang benar +100. Pilih kategori dan nomor soal.":"Ronde Tim: 2 orang per tim, diskusi dan kumpulkan 1 jawaban. Joker tiap tim ×2.";$("#sn").textContent=t?"Skor individu (14 pemain). Klik nama untuk mengganti.":"Skor tim (7 tim). Klik nama untuk mengganti.";$$(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.m==mode))}
+function board(){$("#grid").innerHTML=D.map((d,ci)=>`<div class="cat" style="--c:${d.c}"><h3><span>${d.e}</span>${d.n}<small>${d.t} detik</small></h3><div class="tiles">${d.q.map((_,k)=>`<button class="tile${used.has(ci+"-"+k)?" used":""}" data-c="${ci}" data-k="${k}" aria-label="${d.n} soal ${k+1}" style="--d:${(ci*20+k)*10}ms">${k+1}</button>`).join("")}</div></div>`).join("")}
+function beep(f,d){if(mute)return;try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=f;g.gain.value=.05;o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+d)}catch(e){}}
+function boom(x,y){const c=$("#cf");try{if(!c.matches(":popover-open"))c.showPopover()}catch(e){}c.width=innerWidth;c.height=innerHeight;const g=c.getContext("2d"),cs=["#ff5fa2","#ffe14d","#3ddcff","#b6f24a","#9b7bff"],ps=Array.from({length:100},()=>({x,y,vx:(Math.random()-.5)*15,vy:-Math.random()*15-4,s:6+Math.random()*8,r:Math.random()*6,c:cs[Math.random()*5|0]}));let f=0;(function a(){g.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.vy+=.45;p.x+=p.vx;p.y+=p.vy;p.r+=.2;g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillStyle=p.c;g.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);g.restore()});if(++f<120)requestAnimationFrame(a);else{g.clearRect(0,0,c.width,c.height);try{c.hidePopover()}catch(e){}}})()}
+function open(c,k){cur={c,k};const d=D[c],[q,a]=d.q[k].split("|");$("#qc").textContent=d.e+" "+d.n;$("#qd").style.background=d.c;$("#qn").textContent="SOAL "+(k+1);$("#q").textContent=q;$("#a").textContent=a;$("#fl").classList.remove("open");$("#rv").textContent="Buka jawaban";tot=left=d.t;run=true;$("#pz").textContent="Jeda";tick();$("#qd").showModal()}
+function tick(){$("#clk").textContent=left;$("#tb i").style.width=(left/tot*100)+"%";$("#clk").classList.toggle("low",left<=10&&left>0);$("#tb").classList.toggle("low",left<=10)}
+function flip(){const o=$("#fl").classList.toggle("open");$("#rv").textContent=o?"Tutup jawaban":"Buka jawaban";if(o){run=false;$("#pz").textContent="Lanjut";const r=$("#fl").getBoundingClientRect();boom(r.left+r.width/2,r.top+r.height/2)}}
+function closeQ(){if(cur){used.add(cur.c+"-"+cur.k);const t=$(`.tile[data-c="${cur.c}"][data-k="${cur.k}"]`);t&&t.classList.add("used")}run=false;$("#qd").close()}
+setInterval(()=>{if(!run||!$("#qd").open)return;if(left>0){left--;tick();if(left<=5&&left>0)beep(660,.08);if(left==0){beep(220,.6);run=false}}},1000);
+function score(hi){const a=P[mode].map((p,i)=>({...p,i})).sort((x,y)=>y.s-x.s);$("#sl").innerHTML=a.map((p,r)=>`<div class="row${p.i===hi?" bump":""}" data-i="${p.i}"><span class="rk">${r+1}</span><input value="${p.n}" aria-label="Nama"><b class="sc">${p.s}</b><button data-d="-100">−100</button><button class="pl" data-d="100">+100</button>${mode=="tim"?'<button data-d="200">Joker ×2</button>':""}</div>`).join("")}
+function podium(){const a=[...P[mode]].sort((x,y)=>y.s-x.s).slice(0,3),o=[1,0,2],h=[150,210,110],m=["🥈","🥇","🥉"];$("#pod").innerHTML=o.filter(i=>a[i]).map(i=>`<div style="height:${h[o.indexOf(i)]}px;animation-delay:${i==0?.9:i==1?.5:.1}s;background:${["#ffe14d","#e8e8e8","#ffb37a"][i]}"><span style="font-size:34px">${m[o.indexOf(i)]}</span>${a[i].n}<br>${a[i].s}</div>`).join("");$("#pd").showModal();setTimeout(()=>boom(innerWidth/2,innerHeight/2),700)}
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.v)show(b.dataset.v);
+ else if(b.dataset.m){mode=b.dataset.m;labels();if($("#v-score").classList.contains("on"))score()}
+ else if(b.classList.contains("tile"))open(+b.dataset.c,+b.dataset.k);
+ else if(b.dataset.d){const r=b.closest(".row"),i=+r.dataset.i,d=+b.dataset.d;P[mode][i].s=Math.max(0,P[mode][i].s+d);if(d>0){const x=b.getBoundingClientRect();boom(x.left+x.width/2,x.top)}score(i)}});
+$("#rv").onclick=flip;$("#cl").onclick=closeQ;
+$("#pz").onclick=()=>{run=!run;$("#pz").textContent=run?"Jeda":"Lanjut"};
+$("#sd").onclick=()=>{mute=!mute;$("#sd").textContent="Suara: "+(mute?"mati":"nyala")};
+$("#win").onclick=podium;$("#pc").onclick=()=>$("#pd").close();
+$("#sl").addEventListener("input",e=>{if(e.target.tagName=="INPUT")P[mode][+e.target.closest(".row").dataset.i].n=e.target.value});
+$("#qd").addEventListener("close",()=>{run=false});
+$("#qd").addEventListener("keydown",e=>{if(e.key===" "&&document.activeElement.tagName!="BUTTON"){e.preventDefault();flip()}});
+labels();board();
+</script>
+</body>
+</html>
